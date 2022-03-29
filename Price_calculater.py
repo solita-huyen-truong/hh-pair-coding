@@ -41,18 +41,15 @@ def main():
     total_without_tax = round(items_to_order * price_of_item, 2)
     print("Your order is ", total_without_tax, " dollars without tax")
     
+    discounted_amt = calculate_discount(total_without_tax)
+    
     tax_state = input("Please add your state for taxation purposes:")
     
-    tax_amount = calculate_tax_per_state(total_without_tax, tax_state)
+    tax_amount = calculate_tax_per_state(total_without_tax - discounted_amt, tax_state)
     
-    total_sum = total_without_tax + tax_amount
+    total_sum = total_without_tax - discounted_amt + tax_amount
+
     print(f'Your order is {total_sum} including tax.')
-
-    discounted_amt = calculate_discount(total_without_tax)
-
-    final_total= total_sum - discounted_amt
-  
-    print("The total of your order including tax after the discount is ", final_total," dollars \n")
     
     happy = str(input("Are you happy with your order? Please answer Y/N in order to send the order forward \n")).upper()
     
