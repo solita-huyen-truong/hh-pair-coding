@@ -1,0 +1,29 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<html>
+    <body>
+        <!--Greeting-->
+
+        <!--Calculation form-->
+        <form method="post">
+            <section>
+                <label for="quantity">Quantity</label>
+                <input 
+                name="quantity" 
+                id="quantity" 
+                required>
+            </section>
+            <section>
+                <label for="unitPrice">Unit Price</label>
+                <input 
+                type="unitPrice" 
+                name="unitPrice" 
+                id="unitPrice" 
+                required>
+            </section>
+            <input type="submit" value="Order">
+        </form>
+        <!--Order breakdown-->
+    </body>
+</html>
